@@ -4,14 +4,13 @@
  */
 
 var assert = require('assert');
-var fs = require('fs');
+var reservedWords = require('./reserved')
 
 /**
  * Reserved word map.
  */
 
-var txt = fs.readFileSync(__dirname + '/reserved.txt', 'utf8');
-var reserved = txt.split('\n').reduce(function(map, word){
+var reserved = reservedWords.reduce(function(map, word){
   map[word.toLowerCase()] = true;
   return map;
 }, {});
